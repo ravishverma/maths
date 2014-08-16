@@ -12,7 +12,7 @@ This is a collection of useful matrix operators and other mathematical functions
 
 ####List:
  1. Determinant of a matrix [function]
-   - SYNTAX: value = *det(a)*
+   - SYNTAX: *value = det(a)*
    - RESULT: Determinant of matrix 'a' is stored in 'value'
    - DESCRIPTION: LU decomposition is used for computation
    - CAUTION: Input only square matrices
