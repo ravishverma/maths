@@ -1,21 +1,22 @@
 maths
 =====
-Module for FORTRAN 90
+#Module for FORTRAN 90
 
-This is collection of useful matrix operators and other mathematical functions
-Many more functions will be added as and when I will feel the need of it.
+Also have a look at FORTRAN syntax package [MinimalFortran](https://github.com/315234/MinimalFortran) if you use Sublime text.
 
- File : mathlib.f90 [module]
+This is a collection of useful matrix operators and other mathematical functions. Many more functions will be added as and when I will feel the need of it.
 
- Necessary mathematical functions
+##File : mathlib.f90 [module]
 
- List:
+###Necessary mathematical functions
+
+####List:
  1. Determinant of a matrix [function]
- Info:
- Syntax: value = det(a)
- Result: Determinant of matrix 'a' is stored in 'value'
- Description: LU decomposition is used for computation
- Caution: Input only square matrices
+   -Info:
+   -Syntax: value = det(a)
+   -Result: Determinant of matrix 'a' is stored in 'value'
+   -Description: LU decomposition is used for computation
+   -Caution: Input only square matrices
 
  2. Printing a 2-D matrix in rows and columns [subroutine]
  Info:
