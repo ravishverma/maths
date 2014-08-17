@@ -1,6 +1,6 @@
 git add code1.f90
 git add mathlib.f90
 git add syncgit
-git commit -a -m 'MESSAGE: 4x4 matrix'
+git commit -a -m 'MESSAGE: verification added'
 git pull https://github.com/ravishverma/maths.git
 git push

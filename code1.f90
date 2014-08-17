@@ -9,5 +9,7 @@ program code1
 	print*,'Determinant of the matrix is : ', val1
 	print*,'Inverse of the matrix is : '
 	call printmat2d(val2)
+	print*, 'Verify product of matrix and the inverse : '
+	call printmat2d(matmul(b,val2))
 
 end program code1
