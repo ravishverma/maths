@@ -1,5 +1,5 @@
 module mathlib
-!========================================================================
+!===============================================================================
 ! Necessary mathematical functions
 !
 ! List:
@@ -21,7 +21,7 @@ module mathlib
 !		Result: Returns inverse of matrix 'a'
 !		Description: Utilizes LU decomposition and Row operations on U & L
 !		Caution: Inverse of a singular matrix cannot be evaluated
-!=========================================================================
+!===============================================================================
 	implicit none
 contains
 	function det(a)
@@ -154,7 +154,7 @@ contains
 			do i=1,n
 				detnew=detnew*L(i,i)*U(i,i)
 			end do
-			tol = abs(detnew-detold)/detold
+			tol = abs((detnew-detold)/detold)
 			detold=detnew
 		end do
 	end subroutine doLU
@@ -162,11 +162,10 @@ contains
 	subroutine printmat2d(a)
 		! Prints matrix 'a' in a pretty format
 		real :: a(:,:)
-		integer :: dim1, dim2, row, col
+		integer :: dim1, row
 		dim1=size(a,1)
-		dim2=size(a,2)
 		do row=1,dim1
-			write(*,*) (a(row,col), col=1,dim2)
+			write(*,*) a(row,:)
 		end do
 		print*
 	end subroutine printmat2d
