@@ -1,2 +1,6 @@
+git add code1.f90
+git add mathlib.f90
+git add syncgit
+git commit
 git pull https://github.com/ravishverma/maths.git
 git push
