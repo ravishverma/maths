@@ -5,8 +5,9 @@ module mathlib
 ! List:
 ! 1. Determinant of a matrix [function]
 ! Info:
-!		Syntax: value = det(a)
+!		Syntax: value = det(a,tole)
 !		Result: Determinant of matrix 'a' is stored in 'value'
+!               with tolerance of 10^(-tole)
 !		Description: LU decomposition is used for computation
 !		Caution: Input only square matrices
 !
@@ -17,20 +18,21 @@ module mathlib
 !
 ! 3. Inverse of a matrix [function]
 ! Info:
-!		Syntax: inv(a)
+!		Syntax: inv(a,tole)
 !		Result: Returns inverse of matrix 'a'
+!               with tolerance of 10^(-tole)
 !		Description: Utilizes LU decomposition and Row operations on U & L
 !		Caution: Inverse of a singular matrix cannot be evaluated
 !===============================================================================
 	implicit none
 contains
-	function det(a)
+	function det(a,tole)
 	! Determinant of a matrix 'a'
 		implicit none
 		! Dimension of the input array
 		integer :: dim1, dim2, n, i
 		! Determinant
-		real :: det
+		real :: det, tole
 		real :: a(:,:)
 		real, dimension(:,:), allocatable :: L, U
 		dim1 = size(a,1)
@@ -40,7 +42,7 @@ contains
 			n = dim1
 			allocate(L(n,n))
 			allocate(U(n,n))
-			call doLU(a,L,U)
+			call doLU(a,L,U,tole)
 			det=1
 			do i=1,n
 				det=det*U(i,i)
@@ -51,13 +53,13 @@ contains
 		end if
 	end function det
 
-	function inv(a)
+	function inv(a,tole)
 	! Inverse of a matrix 'a'
 		implicit none
 		! Dimension of the input array
 		integer :: dim1, dim2, n, i, j
 		! Determinant
-		real :: det
+		real :: det, tole
 		real :: a(:,:)
 		real, dimension(:,:), allocatable :: L, U, inv, LI, UI
 		dim1 = size(a,1)
@@ -67,7 +69,7 @@ contains
 			n = dim1
 			allocate(L(n,n))
 			allocate(U(n,n))
-			call doLU(a,L,U)
+			call doLU(a,L,U,tole)
 			det=1
 			do i=1,n
 				det=det*U(i,i)
@@ -112,20 +114,19 @@ contains
 
 	end function inv
 
-	subroutine doLU(a,L,U)
+	subroutine doLU(a,L,U,tole)
 	! Doolittle algorithm for LU decomposition
 	! LU decompostition of matrix 'a'
 		implicit none
 		real :: a(:,:), L(:,:), U(:,:)
 		integer :: n, i, j, p
-		real :: s, detold, detnew, tol
-		real, parameter :: tole=10**(-5)
+		real :: s, detold, detnew, tol, tole
 		n = size(a,1)
 		L=0
 		U=0
 		detold=0
 		tol=100 ! Initialization
-		do while (tol>tole)
+		do while (tol>(10**(-tole)))
 			do i=1,n
 				L(i,i) = 1 ! Doolittle uniqueness
 				! Loop for Uij

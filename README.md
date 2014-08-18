@@ -12,8 +12,8 @@ This is a collection of useful matrix operators and other mathematical functions
 
 ####List:
  1. Determinant of a matrix [function]
-   - SYNTAX: *value = det(a)*
-   - RESULT: Determinant of matrix 'a' is stored in 'value'
+   - SYNTAX: *value = det(a,tole)*
+   - RESULT: Determinant of matrix 'a' is stored in 'value' with tolerance of 10^(-tole)
    - DESCRIPTION: LU decomposition is used for computation
    - CAUTION: Input only square matrices
 
@@ -22,8 +22,8 @@ This is a collection of useful matrix operators and other mathematical functions
    - RESULT: Matrix 'a' is printed in rows and columns
 
  3. Inverse of a matrix [function]
-   - SYNTAX: *inv(a)*
-   - RESULT: Returns inverse of matrix 'a'
+   - SYNTAX: *inv(a,tole)*
+   - RESULT: Returns inverse of matrix 'a' with tolerance of 10^(-tole)
    - DESCRIPTION: Utilizes LU decomposition and Row operations on U & L
    - CAUTION: Inverse of a singular matrix cannot be evaluated
 
