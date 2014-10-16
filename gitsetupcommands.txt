@@ -1,0 +1,4 @@
+git remote add origin https://github.com/ravishverma/maths.git
+git remote set-url origin https://ravishverma:winner25@github.com/ravishverma/maths.git
+git config --global user.name "ravishverma"
+git config --global user.email "ravish7v@gmail.com"

@@ -30,9 +30,9 @@ contains
 	! Determinant of a matrix 'a'
 		implicit none
 		! Dimension of the input array
-		integer :: dim1, dim2, n, i
+		integer :: dim1, dim2, n, i, tole
 		! Determinant
-		real :: det, tole
+		real :: det
 		real :: a(:,:)
 		real, dimension(:,:), allocatable :: L, U
 		dim1 = size(a,1)
@@ -57,9 +57,9 @@ contains
 	! Inverse of a matrix 'a'
 		implicit none
 		! Dimension of the input array
-		integer :: dim1, dim2, n, i, j
+		integer :: dim1, dim2, n, i, j, tole
 		! Determinant
-		real :: det, tole
+		real :: det
 		real :: a(:,:)
 		real, dimension(:,:), allocatable :: L, U, inv, LI, UI
 		dim1 = size(a,1)
@@ -119,8 +119,8 @@ contains
 	! LU decompostition of matrix 'a'
 		implicit none
 		real :: a(:,:), L(:,:), U(:,:)
-		integer :: n, i, j, p
-		real :: s, detold, detnew, tol, tole
+		integer :: n, i, j, p, tole
+		real :: s, detold, detnew, tol
 		n = size(a,1)
 		L=0
 		U=0
