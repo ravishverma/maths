@@ -14,7 +14,8 @@ This is a collection of useful matrix operators and other mathematical functions
  1. Determinant of a matrix [function]
    - SYNTAX: *value = det(a,tole)*
    - RESULT: Determinant of matrix 'a' is stored in 'value' with tolerance of 10^(-tole)
-   - DESCRIPTION: LU decomposition is used for computation
+   - DESCRIPTION: LU decomposition is used for computation (DoLittle Algorithm)
+   - REFERENCE: [Vismor DoLittle Algorithm](https://vismor.com/documents/network_analysis/matrix_algorithms/S4.SS2.php)
    - CAUTION: Input only square matrices
 
  2. Printing a 2-D matrix in rows and columns [subroutine]
