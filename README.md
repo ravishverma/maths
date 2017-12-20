@@ -1,16 +1,16 @@
 maths
 =====
-#Module for FORTRAN 90
+# Module for FORTRAN 90
 
 Also have a look at FORTRAN syntax package [MinimalFortran](https://github.com/315234/MinimalFortran) if you use Sublime text.
 
 This is a collection of useful matrix operators and other mathematical functions. Many more functions will be added as and when I will feel the need of it.
 
-##File : mathlib.f90 [module]
+## File : mathlib.f90 [module]
 
-###Necessary mathematical functions
+### Necessary mathematical functions
 
-####List:
+#### List:
  1. Determinant of a matrix [function]
    - SYNTAX: *value = det(a,tole)*
    - RESULT: Determinant of matrix 'a' is stored in 'value' with tolerance of 10^(-tole)
